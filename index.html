@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3ed" />
+    <title>Montagem de Polaroids A4</title>
+    <meta name="description" content="Prepare quatro fotos em molduras Polaroid e baixe uma folha A4 pronta para imprimir." />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./frames-data.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <div class="workbench">
+        <aside class="panel setup-panel">
+          <div class="panel-heading"><h2>Monte suas fotos</h2></div>
+          <div class="panel-content">
+            <div class="section-heading"><span class="section-number">01</span><h3>Escolha uma moldura</h3></div>
+            <div class="frame-options" id="frameOptions" role="group" aria-label="Molduras disponíveis"></div>
+
+            <div class="section-divider"></div>
+
+            <div class="section-heading"><span class="section-number">02</span><h3>Adicione quatro fotos</h3></div>
+            <label class="upload-zone" id="uploadZone" for="photoInput">
+              <span class="upload-icon" aria-hidden="true">＋</span>
+              <strong>Escolher fotos</strong>
+              <small>Selecione até quatro imagens de uma vez</small>
+            </label>
+            <input id="photoInput" class="visually-hidden" type="file" accept="image/*" multiple />
+            <div class="slot-heading"><span>Fotos na folha</span><span id="photoCount">0 de 4</span></div>
+            <div class="photo-slots" id="photoSlots"></div>
+            <p class="helper-text">Toque numa foto para ajustar ou trocar. A ordem aqui é a mesma da folha.</p>
+            <p class="error-message" id="errorMessage" role="alert" hidden></p>
+          </div>
+        </aside>
+
+        <section class="panel editor-panel" aria-labelledby="editorHeading">
+          <div class="panel-heading editor-heading">
+            <div><h2 id="editorHeading">Ajuste o enquadramento</h2><p id="editorSubtitle">Selecione uma foto para começar.</p></div>
+            <span class="editor-badge" id="editorBadge">Foto 1 de 4</span>
+          </div>
+          <div class="editor-content">
+            <div class="editor-stage" id="editorStage">
+              <canvas id="editorCanvas" width="630" height="891" aria-label="Prévia da foto selecionada na moldura"></canvas>
+              <div class="editor-empty" id="editorEmpty"><span aria-hidden="true">✦</span><p>Sua foto vai aparecer aqui</p></div>
+            </div>
+            <p class="drag-tip">Arraste a foto para mudar o enquadramento.</p>
+            <div class="adjustments">
+              <div class="control-row"><label for="zoomRange">Aproximação</label><output id="zoomOutput" for="zoomRange">1,00×</output></div>
+              <input id="zoomRange" type="range" min="1" max="3" step="0.01" value="1" disabled />
+              <div class="position-controls">
+                <div><label for="horizontalRange">Esquerda / direita</label><input id="horizontalRange" type="range" min="0" max="100" step="1" value="50" disabled /></div>
+                <div><label for="verticalRange">Cima / baixo</label><input id="verticalRange" type="range" min="0" max="100" step="1" value="50" disabled /></div>
+              </div>
+              <div class="editor-actions">
+                <button class="text-button" type="button" id="replaceButton" disabled>Trocar foto</button>
+                <button class="text-button muted" type="button" id="removeButton" disabled>Remover</button>
+              </div>
+              <input id="replaceInput" class="visually-hidden" type="file" accept="image/*" />
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel export-panel">
+          <div class="panel-heading"><h2>Prévia da folha</h2><p>A4 retrato · quatro fotos · 2 × 2</p></div>
+          <div class="panel-content">
+            <div class="sheet-surround"><canvas id="sheetCanvas" width="840" height="1188" aria-label="Prévia da folha A4 com quatro molduras"></canvas></div>
+            <p class="sheet-caption">Cada moldura ocupa todo o seu quadrante da folha A4, sem cortes.</p>
+            <div class="export-footer"><span id="exportStatus">Adicione quatro fotos para continuar</span><button class="primary-button" type="button" id="downloadButton" disabled><span aria-hidden="true">↓</span> Baixar PDF A4</button><a class="download-link" id="downloadLink" download="polaroids-a4.pdf" hidden>Se o download não iniciou, clique aqui</a></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

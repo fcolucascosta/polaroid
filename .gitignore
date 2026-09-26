@@ -1,0 +1,8 @@
+# As molduras já estão incorporadas em frames-data.js.
+*.png
+assets/
+
+# Arquivos gerados e configuração local.
+*.pdf
+.gh-config/
+publish.ps1
