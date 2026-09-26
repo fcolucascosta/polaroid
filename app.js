@@ -1,5 +1,5 @@
-const PDF_TILE_WIDTH = 1050;
-const PDF_TILE_HEIGHT = 1485;
+const PDF_TILE_WIDTH = 1240;
+const PDF_TILE_HEIGHT = 1754;
 
 const frameDefinitions = [
   {
@@ -400,7 +400,7 @@ function jpegBytes(canvas) {
         return;
       }
       resolve(new Uint8Array(await blob.arrayBuffer()));
-    }, 'image/jpeg', 0.95);
+    }, 'image/jpeg', 0.97);
   });
 }
 

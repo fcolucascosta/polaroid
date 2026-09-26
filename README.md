@@ -8,6 +8,6 @@ Abra `index.html` no navegador. Não é preciso iniciar servidor nem instalar de
 
 ## Impressão
 
-O PDF tem uma página A4 em retrato, com quatro posições de 105 × 148,5 mm. Cada moldura ocupa todo o seu quadrante. O aplicativo ignora a margem praticamente transparente e a sombra inferior dos PNGs, preservando a moldura. A moldura é ajustada à proporção do papel; as fotos mantêm a proporção original. Ao imprimir, use papel A4 e escala de 100%.
+O PDF tem uma página A4 em retrato, com quatro posições de 105 × 148,5 mm. Cada posição é renderizada em 1240 × 1754 pixels (aproximadamente 300 dpi) e compactada em JPEG com qualidade de 97%. Cada moldura ocupa todo o seu quadrante. O aplicativo ignora a margem praticamente transparente e a sombra inferior dos PNGs, preservando a moldura. A moldura é ajustada à proporção do papel; as fotos mantêm a proporção original. Ao imprimir, use papel A4 e escala de 100%.
 
 As imagens originais continuam na raiz da pasta. As cópias em `assets/` usam nomes curtos para facilitar a publicação.
